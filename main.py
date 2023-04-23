@@ -1,4 +1,6 @@
 from fastapi import FastAPI
+from pydantic import BaseModel
+from fastapi.responses import JSONResponse
 
 app = FastAPI()
 
@@ -13,7 +15,7 @@ def status_proc():
 
 @app.get("/api/pn/result")
 def result_proc():
-	return "result"
+	return JSONResponse(status_code=404,content="")
 
 @app.post("/api/pn")
 def start_proc(action: str):
@@ -24,4 +26,4 @@ def start_proc(action: str):
 		st = False
 		return "stopped"
 	else:
-		return "404"
+		return JSONresponse(status_code=404,content="")

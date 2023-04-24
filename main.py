@@ -6,7 +6,6 @@ import subprocess
 app = FastAPI()
 pr = subprocess.Popen('true')
 out = [pr.communicate()[0]]
-	
 
 @app.get("/api/pn")
 def status_proc():
